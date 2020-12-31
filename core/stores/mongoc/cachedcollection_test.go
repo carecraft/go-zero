@@ -16,7 +16,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/tal-tech/go-zero/core/stat"
 	"github.com/tal-tech/go-zero/core/stores/cache"
-	"github.com/tal-tech/go-zero/core/stores/mongo"
+	"github.com/carecraft/go-zero/core/stores/mongo"
 	"github.com/tal-tech/go-zero/core/stores/redis"
 	"github.com/tal-tech/go-zero/core/stores/redis/redistest"
 )
