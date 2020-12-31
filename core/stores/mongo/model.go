@@ -106,6 +106,12 @@ func (mm *Model) Update(selector, update interface{}) error {
 	})
 }
 
+func (mm *Model) UpdateAll(selector, update interface{}) (*mgo.ChangeInfo, error) {
+	return mm.change(func(c Collection) (*mgo.ChangeInfo, error) {
+		return c.UpdateAll(selector, update)
+	})
+}
+
 func (mm *Model) UpdateId(id, update interface{}) error {
 	return mm.execute(func(c Collection) error {
 		return c.UpdateId(id, update)

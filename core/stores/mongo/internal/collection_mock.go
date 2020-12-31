@@ -5,9 +5,10 @@
 package internal
 
 import (
+	reflect "reflect"
+
 	mgo "github.com/globalsign/mgo"
 	gomock "github.com/golang/mock/gomock"
-	reflect "reflect"
 )
 
 // MockMgoCollection is a mock of MgoCollection interface
@@ -148,6 +149,21 @@ func (m *MockMgoCollection) Update(selector, update interface{}) error {
 func (mr *MockMgoCollectionMockRecorder) Update(selector, update interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Update", reflect.TypeOf((*MockMgoCollection)(nil).Update), selector, update)
+}
+
+// UpdateAll mocks base method
+func (m *MockMgoCollection) UpdateAll(selector, update interface{}) (*mgo.ChangeInfo, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "UpdateAll", selector, update)
+	ret0, _ := ret[0].(*mgo.ChangeInfo)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// UpdateAll indicates an expected call of Update
+func (mr *MockMgoCollectionMockRecorder) UpdateAll(selector, update interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UpdateAll", reflect.TypeOf((*MockMgoCollection)(nil).UpdateAll), selector, update)
 }
 
 // UpdateId mocks base method
